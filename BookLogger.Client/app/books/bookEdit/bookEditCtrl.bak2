@@ -1,0 +1,40 @@
+﻿(function () {
+    'use strict';
+
+    var controllerId = "BookEditCtrl";
+
+    angular
+        .module("App.Books")
+        .controller(controllerId, ControllerFn);
+
+    ControllerFn.$inject = [
+        "$routeParams",
+        "dataCtx",
+        "logger",
+        "$cookies",
+        "$cookieStore"
+    ]
+
+    function ControllerFn($routeParams, dataCtx, logger, $cookies, $cookieStore) {
+
+        var vm = this;
+        var books = dataCtx;
+
+        vm.currentBook = books.filter(function (item) {
+            return item.book_id == $routeParams.bookID;
+        })[0];
+
+        vm.SetAsFavorite = function () {
+
+            $cookies.favoriteBook = vm.currentBook.title +", " + vm.currentBook.author;
+
+        };
+
+        $cookieStore.put('lastEditedBook', vm.currentBook);
+
+        logger.out(controllerId + " has been created");
+
+
+    }
+
+})()

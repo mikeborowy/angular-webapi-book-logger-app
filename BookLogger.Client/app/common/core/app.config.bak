@@ -1,0 +1,28 @@
+﻿(function () {
+    'use strict';
+
+    angular
+        .module("App.Config", [])
+        .constant("cConfig", {
+            //BASIC CONFIGURATION
+            APP_TITLE: "Book Logger",
+            APP_DESC: "Track which books you read",
+            APP_VER: "1.0",
+            API_SERVER_URL: {
+                host: "http://localhost",
+                port: "53518"
+            },
+            SERVER_MOCK_ENABLED: false,
+            APP_DEBUG: false
+        })
+        //.constant("c_settings", SettingsFn)
+
+    //var ConfigFn = (function (_set) {
+    //    var _set = {};
+    //    _set.APP_TITLE = "Book Logger";
+    //    _set.APP_DESC = "Track which books you read";
+    //    _set.APP_VER = "1.0";
+    //    return _set;
+    //}(ConfigFn))
+
+})()

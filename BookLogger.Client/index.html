@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="content/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body ng-app="App">
+
+    <div ng-view></div>
+
+    <script src="scripts/jquery-3.1.1.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/toastr.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-resource.js"></script>
+    <script src="scripts/angular-cookies.js"></script>
+    <script src="scripts/angular-sanitize.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <script src="scripts/angular-mocks.js"></script>
+    <script src="scripts/angular-ui/angular-ui-router.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="scripts/angular-ui/mask.js"></script>
+    <!--APP START-->
+    <script src="app/common/core/cfg.app.js"></script>
+
+    <!---App Core-->
+    <script src="app/app.js"></script>
+    <script src="app/common/core/app.core.js"></script>
+    <script src="app/common/core/app.constants.js"></script>
+    <script src="app/common/core/app.routes.js"></script>
+    <script src="app/common/core/app.events.js"></script>
+    <script src="app/common/core/app.exceptionHandler.js"></script>
+
+    <!--App Common Services-->
+    <script src="app/common/app.common.js"></script>
+    <script src="app/common/services/app.common.services.js"></script>
+    <!-- Shared Srvc-->
+    <script src="app/common/services/shared/commonServices.js"></script>
+    <script src="app/common/services/shared/loggerService.js"></script>
+    <script src="app/common/services/shared/dataInterceptor.js"></script>
+    <script src="app/common/services/shared/currentUser.js"></script>
+    <!-- Data Base Srvc -->
+    <script src="app/common/services/data/dataServiceBase.js"></script>
+    <!-- Books Srvc -->
+    <script src="app/common/services/books/bookModel.js"></script>
+    <script src="app/common/services/books/bookService.js"></script>
+    <script src="app/common/services/books/dataResource.js"></script>
+    <script src="app/common/services/books/badgeService.js"></script>
+    <!-- Readers Srvc-->
+    <script src="app/common/services/readers/readerModel.js"></script>
+    <script src="app/common/services/readers/readerService.js"></script>
+    <!-- Cache Srvc -->
+    <script src="app/common/services/cache/summaryService.js"></script>
+
+    <!--App Controllers-->
+
+    <!-- Books Ctrl -->
+    <script src="app/books/app.books.js"></script>
+    <script src="app/books/cfg.routes.js"></script>
+    <script src="app/books/bookList/bookListCtrl.js"></script>
+    <script src="app/books/bookAdd/bookAddCtrl.js"></script>
+    <script src="app/books/bookEdit/bookEditCtrl.js"></script>
+    <script src="app/books/bookDetails/bookDetailsCtrl.js"></script>
+
+    <script src="scripts/_references.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+[
+  {
+    "BookId": 1,
+    "Title": "Goodnight Moon",
+    "Author": "Margaret Wise Brown",
+    "YearPublished": 1953
+  },
+  {
+    "BookId": 2,
+    "Title": "Green Eggs and Hams",
+    "Author": "Dr. Seuss",
+    "YearPublished": 1960
+  },
+  {
+    "BookId": 3,
+    "Title": "Where the Wild Things Are",
+    "Author": "Maurice Sendak",
+    "YearPublished": 1963
+  },
+  {
+    "BookId": 4,
+    "Title": "The Hobbit",
+    "Author": "J. R. R. Tolkien",
+    "YearPublished": 1937
+  },
+  {
+    "BookId": 5,
+    "Title": "Curious George",
+    "Author": "H. A. Rey",
+    "YearPublished": 1941
+  },
+  {
+    "BookId": 6,
+    "Title": "Alice's Adventures in Wonderland",
+    "Author": "Lewis Carroll",
+    "YearPublished": 1865
+  },
+  {
+    "BookId": 8,
+    "Title": "Pizda na stole",
+    "Author": "Z.Bzykacz",
+    "YearPublished": 2017
+  }
+]

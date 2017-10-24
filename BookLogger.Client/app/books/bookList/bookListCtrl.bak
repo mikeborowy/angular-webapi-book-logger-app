@@ -1,0 +1,67 @@
+﻿(function () {
+    'use strict';
+
+    var controllerId = "BooksCtrl";
+
+    angular
+        .module("App.Books")
+        .controller(controllerId, ControllerFn);
+
+    ControllerFn.$inject = [
+        "$settings",
+        "dataService",
+        "logger",
+        "badgeService",
+    ]
+
+    function ControllerFn($settings, dataService, logger, badgeService) {
+
+        var vm = this;
+        vm.appName = $settings.appName;
+        vm.appDesc = $settings.appDesc;
+        vm.getBadge = badgeService.retrieveBadge;
+
+        dataService
+            .getAllBooks()
+            .then(function (data) { OnSuccess(data, "Books") }, null, OnGetNotifications)
+            .catch(OnError)
+            .finally(function () { OnComplete("Books") });
+
+        dataService
+            .getAllReaders()
+            .then(function (readers) { OnSuccess(readers, "Readers") }, null, OnGetNotifications)
+            .catch(OnError)
+            .finally(function () { OnComplete("Readers") });
+
+        logger.out(controllerId + " has been created");
+
+        function OnSuccess(data, dataType) {
+            //throw "error in success handler";
+            switch (dataType) {
+            
+                case("Books"):
+                    vm.allBooks = data;
+                    break;
+                case("Readers"):
+                    vm.allReaders = data;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function OnGetNotifications(notification) {
+            console.log("Promise notification: " + notification);
+        }
+
+        function OnError(errorMsg) {
+            console.log("Error message: " + errorMsg);
+        }
+
+        function OnComplete(dataType) {
+            console.log(dataType + " loading is Complete")
+        }
+
+    }
+
+})()

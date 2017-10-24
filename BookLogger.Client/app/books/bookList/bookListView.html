@@ -1,0 +1,43 @@
+﻿<h1>{{vm.appName}}</h1>
+<div>
+    <h4>Cart:</h4>
+    <ul>
+        <li ng-repeat="book in vm.cart">
+            {{book.title}}, {{book.author}} | <a href="" ng-click="vm.OnRemoveFromCart(book.bookId)">Remove From Cart</a>
+        </li>
+    </ul>
+</div>
+
+<div>
+    {{vm.userSummary.bookCount}} - Books |
+    {{vm.userSummary.readerCount}} - Readers |
+    {{vm.userSummary.grandTotalMinutes}} - Total Minutes
+</div>
+
+<div>
+    <ul>
+        <li ng-repeat="book in vm.allBooks">
+            <a href="#/BookDetails/{{book.bookId}}">
+                Details{{ book.title }} - {{ book.author }}
+            </a> |
+            <a href="#/EditBook/{{book.bookId}}">Edit</a> |
+            <a href="" ng-click="vm.OnDelete(book.bookId)">Delete</a>
+            <br />
+            <!--<a href="" ng-click="vm.OnRemoveFromCart(book.bookId)">Remove From Cart</a>-->
+        </li>
+    </ul>
+</div>
+
+<a href="#/AddBook">Add New Book</a>
+<a href="#/EditBook/{{ vm.lastEditedBook.bookId}}">Open Last Edited Book</a>
+
+<div>
+    <ul>
+        <li ng-repeat="reader in vm.allReaders">{{ reader.name }} - {{ vm.getBadge(reader.totalMinutesRead) }}</li>
+    </ul>
+</div>
+
+<div>
+    <h3>Current favorite Book</h3>
+    <h4>{{vm.favoriteBook}}</h4>
+</div>

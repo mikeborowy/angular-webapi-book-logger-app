@@ -1,0 +1,50 @@
+﻿(function () {
+    'use strict';
+
+    var controllerId = "BookEditCtrl";
+
+    angular
+        .module("App.Books")
+        .controller(controllerId, ControllerFn);
+
+    ControllerFn.$inject = [
+        "$routeParams",
+        "dataService",
+        "logger"
+    ]
+
+    function ControllerFn($routeParams, dataService, logger) {
+
+        var vm = this;
+
+        dataService
+            .getAllBooks()
+            .then(OnSuccess, null, OnGetNotifications)
+            .catch(OnError)
+            .finally(function () { OnComplete("Books") });
+
+        logger.out(controllerId + " has been created");
+
+        function OnSuccess(books) {
+            //throw "error in success handler";
+            vm.currentBook = books.filter(function (item) {
+                return item.book_id == $routeParams.bookID;
+            })[0];
+            console.log(books)
+        }
+
+        function OnGetNotifications(notification) {
+            console.log("Promise notification: " + notification);
+        }
+
+        function OnError(errorMsg) {
+            console.log("Error message: " + errorMsg);
+        }
+
+        function OnComplete(dataType) {
+            console.log(dataType + " loading is Complete")
+        }
+
+    }
+
+})()
